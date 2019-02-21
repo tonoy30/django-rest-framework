@@ -1,9 +1,12 @@
+import uuid
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 # Create your models here.
 
 
 class Course(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4,
+                          help_text="Unique ID for this particular course across whole system.")
     title = models.CharField(max_length=255)
     url = models.URLField(unique=True)
 
