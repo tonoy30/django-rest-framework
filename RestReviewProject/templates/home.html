@@ -10,4 +10,14 @@ Course - Review
         <a role="button" class="btn btn-outline-warning" href="{% url 'courses' %}" target="_blank">Courses</a>
     </p>
 </div>
+<div class="container">
+    <div class="page-header page-header-custom">
+        <h1 class="text-center">List of All courses</h1>
+    </div>
+    <div class="jumbotron">
+        {% for course in course_list %}
+        <h3> {{ course.pk }} 🔦 <a href="{% url 'course_detail' course.pk %}">{{ course.title }}.</a></h3>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
